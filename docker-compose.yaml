@@ -1,0 +1,17 @@
+version: "3"
+services:
+  database:
+    image: "postgres:latest"
+    container_name: postgres-webapp
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: user
+      POSTGRES_USER: user
+    volumes:
+      - "./var/postgresql/data:/var/lib/postgresql/data"
+  quarkus:
+    build:
+      dockerfile: Dockerfile.native
+      context: .
+    container_name: quarkus-webapp
