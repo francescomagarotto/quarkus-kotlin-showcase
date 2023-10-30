@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test
 
 @QuarkusTest
 @TestProfile(TestConfiguration::class)
-class PetResourceTest {
+class PetControllerTest {
 
     @Test
     fun testHelloEndpoint() {

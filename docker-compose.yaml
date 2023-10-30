@@ -10,8 +10,18 @@ services:
       POSTGRES_USER: user
     volumes:
       - "./var/postgresql/data:/var/lib/postgresql/data"
+      - "./src/test/resources/import.sql:/docker-entrypoint-initdb.d/init.sql"
+    networks:
+      - webapp
   quarkus:
     build:
-      dockerfile: Dockerfile.native
+      dockerfile: src/main/docker/Dockerfile.jvm
       context: .
     container_name: quarkus-webapp
+    ports:
+      - "8080:8080"
+    networks:
+      - webapp
+networks:
+  webapp:
+    driver: bridge

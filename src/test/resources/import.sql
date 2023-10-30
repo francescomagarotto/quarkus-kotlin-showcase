@@ -1,4 +1,4 @@
-create if not exists table pet
+create table pet
 (
     name varchar primary key ,
     age  int

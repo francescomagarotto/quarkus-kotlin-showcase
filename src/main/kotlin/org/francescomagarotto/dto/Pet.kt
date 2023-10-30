@@ -1,4 +1,9 @@
-package org.francescomagarotto
+package org.francescomagarotto.dto
 
-data class Pet(val name: String, val age: Int) {
+import com.fasterxml.jackson.annotation.JsonProperty
+
+data class Pet(
+    @get:JsonProperty("name") var name: String = "Nome",
+    @get:JsonProperty("age") var age: Int = 0
+) {
 }

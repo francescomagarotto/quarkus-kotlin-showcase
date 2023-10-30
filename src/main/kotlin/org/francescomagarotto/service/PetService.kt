@@ -1,4 +1,4 @@
-package org.francescomagarotto
+package org.francescomagarotto.service
 
 import jakarta.inject.Inject
 import jakarta.inject.Singleton
@@ -23,6 +23,14 @@ class PetService(@Inject var petRepository: PetRepository) {
         }
         petRepository.persistAndFlush(petEntity)
         return petEntity
+    }
+
+    fun findByName(name: String): PetEntity {
+        return petRepository.findById(name);
+    }
+
+    fun deleteByName(name: String): Boolean {
+        return petRepository.deleteById(name);
     }
 
 
